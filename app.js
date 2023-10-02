@@ -1,36 +1,22 @@
-// Базовые арифметические операторы
+// Преобразование типов
 
-const width = 10;
-const height = 5;
-const space = width * height;
-const newWidth = width - 4;
-const newWidth2 = width + 4;
-const division = newWidth / newWidth2;
-const volume = 2 ** 3; // 2*2*2
-console.log(volume);
+const age = "18";
+console.log(Number(age) + 5); // Если знак + JS приводит все к строкам
+console.log(age - 3); // Если знак минус, деление, умножение  - привидит к числу
+const userName = "Вася";
+console.log(Number(userName) + 5); // Получаем NAN так как получено не число!
+console.log(String(4) + 7); // Результат 47, конвертировали в строку
+console.log(Boolean("") + 10); // преобразование в булевое значение
+console.log(true + 2); // Получаем 3, т.к. значение тру конвертируется в еденицу
 
-// Строки
-const city = "Moskow";
-const street = "Lenina";
-console.log(city + ", " + street + " " + 5);
+const a = 2 + "10";
+console.log(a - 10);
 
-// Операторы присваивания
-let age = 18 + 5;
-age += 2; // age = age + 2;
-age -= 3; // age = age - 2;
-age *= 2; // age = age * 2;
-age /= 2; // age = age / 2;
+// Всегда получаем false!
 
-age++; // age = age + 1
-age--; // age = age - 1
-
-console.log(age);
-
-// Операторы сравнения
-const vasia = 20;
-
-console.log(age > vasia);
-console.log(age >= vasia);
-console.log(age < vasia);
-console.log(age <= vasia);
-console.log(age == vasia);
+console.log(Boolean(0)); //false
+console.log(Boolean("")); //false
+let z;
+console.log(Boolean()); // z не задана (undefiend), соотвественно получаем false
+console.log(Boolean(null)); //false
+console.log(Boolean(Number("string"))); // false т.к получаем NaN
