@@ -1,30 +1,45 @@
-// Тернарный оператор
+/**
+ * Методом prompt получите ответ пользователя на вопрос "Сколько будет 7 + или - 15?". Если ответ верен, введите в консоле "Успех", если нет - "Вы робот!",
+ * а если он введет "Я не робот", то тоже успех.
+ *
+ */
 
-const bmwX3Price = 1000000;
-// const fordFocusPrice = 10000;
+let responseUser = prompt("Сколько будет 7 + или - 15?");
 
-const budget = 20000;
-
-let message;
-
-if (budget > bmwX3Price) {
-  message = "BMW";
+// Решение 1
+if (responseUser == -8 || responseUser == 23) {
+  console.log("Успех!");
+} else if (responseUser == "Я не робот") {
+  console.log("Успех!");
 } else {
-  message = "НЕХВАТАЕТ ДЕНЕГ!";
+  console.log("Вы ррррробот!");
 }
 
-// // Для упрощения вводим тернарный оператор ?
-// const str =  10 > 0 ? 'Больше нуля' : 'Меньше нуля'
+// Решение 2
+switch (true) {
+  case responseUser === -8:
+  case Number(responseUser) === 22:
+  case Number(responseUser) === "Я не робот":
+    console.log("Успех!");
+    break;
+  default:
+    console.log("Вы ррррробот!");
+}
 
-// // Запись выше полностью равно этой:
+// Решение 3
 
-// if (10 > 0) {
-//   message = "Больше нуля";
-// } else {
-//   message = "Меньше нуля";
-// }
-// console.log(`Я хочу купить ${message} `);
-
-console.log(
-  `Я хочу купить ${budget > bmwX3Price} ? 'BMW' : "НЕХВАТАЕТ ДЕНЕГ!"`
-);
+if (responseUser === "Я не робот!") {
+  console.log("Успех!");
+} else {
+  const responseUserNum = Number(responseUser); // Чтобы дважды не повторять код как в решении 2, вводим вторую переменную и конвертируем в число
+  switch (
+    responseUserNum // Можно запустить switch внутри if else!!
+  ) {
+    case 22:
+    case -8:
+      console.log("Успех!");
+      break;
+    default:
+      console.log("Вы робот!");
+  }
+}
