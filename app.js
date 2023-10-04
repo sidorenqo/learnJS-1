@@ -1,30 +1,22 @@
-const isAdmin = true;
-const canWrite = true;
+/**
+ * Пользователь хочет приобрести игру в магазине
+ * Он может сделать это только если
+ * - Его баланс больше 1000 (balance) или число бонусов больше 100 (bonusBalanse)
+ * - Он не забанен
+ * - Игра не куплена
+ * - Игра есть в продаже
+ *
+ * Напишите условие для покупки и выведите в консоль результат
+ *
+ */
 
-console.log(`Системный файл ${isAdmin && canWrite}`);
-console.log(`Обчный файл ${isAdmin || canWrite}`);
-console.log(`Инвертируем права админа ${!isAdmin}`); // НЕ
+const balance = 200;
+const bonusBalanse = 100;
+const isBanned = false;
+const isExist = true;
+const isSelling = true;
 
-const isEdited = true;
-const isSuperAdmin = true;
-console.log(
-  `Файл с редактированием ${isAdmin && canWrite && (!isEdited || isSuperAdmin)}`
-);
+const canBuy =
+  (balance >= 1000 || bonusBalanse >= 100) && !isBanned && isExist && isSelling;
 
-// Операторы с другими типами
-
-console.log("Вася || Олег"); // Или выводит первое правдивое или последнее ложное
-console.log("false || Олег"); // Или выводит первое правдивое или последнее ложное
-console.log("Вася || false"); // Или выводит первое правдивое или последнее ложное
-
-console.log("Вася" && "Олег"); // И вывоит последнее прадивое или первое ложное
-console.log(false && "Олег"); // И вывоит последнее прадивое или первое ложное
-console.log("Вася" && false); // И вывоит последнее прадивое или первое ложное
-
-let a;
-const userName = a || "Петя";
-console.log(userName);
-
-const itsAdmin = false;
-const fileName = itsAdmin && "file.mp4";
-console.log(fileName);
+console.log(`Пользователь может сделать покупку: ${canBuy ? "ДА" : "НЕТ"} `);
