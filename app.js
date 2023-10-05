@@ -1,32 +1,32 @@
-// ФУНКЦИИ ВНУТРИ ФУНКЦИЙ
+/*
+	Пользователь:
+	- Возраст
+	- Наличие работы
+	- Деньги
+	Нужно проверить может ли он купить новый MacBook за 2000$?
+	Он может брать не только свои деньги, но и взять кредит.
+	Ему дадут 500$, только если ему больше 24-х лет и он
+	имеет работу, 100$ если ему просто больше 24-х лет и 0 в
+	ином случае.
+	Напишите функцию, которая принимает данные пользователя
+	и товара и возвращает true или false;
+*/
 
-// На примере задачи: Мы служба доставки придумали стартап в котором люди могут обмениваться подарками. Цена за доставку будет меняться в зависимости от веса и дальности доставки
+function computeCredit(age, hasJob = false) {
+  switch (true) {
+    case age > 24 && hasJob:
+      return 500;
+    case age > 24:
+      return 100;
+    default:
+      return 0;
+  }
+}
+console.log(`Клиенту одобрен кредит в размере: ${computeCredit(29, true)} $`);
 
-const KG_IN_USD = 7; // Стоимость одного кг веса при доставке
-const KM_IN_USD = 5; // Стоимость одного километра пути при доставке
-
-function calculateW(present) {
-  // расчитывает стоимость по весу, параметр вес
-  return present * KG_IN_USD; // возвращаем вес умноженный на 7 долларов
+function canBuy(productPrice, age, money, hasJob = false) {
+  const creditMoney = computeCredit(age, hasJob);
+  return productPrice <= money + creditMoney;
 }
 
-function calculateKm(distance) {
-  // расчитывает стоимость по весу, параметр вес
-  return distance * KM_IN_USD; // возвращаем вес умноженный на 7 долларов
-}
-
-function getExchangePrice(present1, present2, distance) {
-  // Функция считает стоимость доставки, параметры -  вес подарок 1, вес подарок 2, расстояние
-  /** ТУТ Запись, если бы мы не использовали дополнительные функции!
- *const price1 = present1 * KG_IN_USD;
-  const price2 = present2 * KG_IN_USD;
-  const distancePrice = distance * KM_IN_USD;
-  return price1 + price2 + distancePrice;
- */
-  const price1 = calculateW(present1);
-  const price2 = calculateW(present2);
-  const distancePrice = calculateKm(distance);
-  return price1 + price2 + distancePrice;
-}
-
-console.log(getExchangePrice(2, 8, 25));
+console.log(`Можем продать макбук клиенту : ${canBuy(2000, 25, 1000)}`);
