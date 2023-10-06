@@ -1,16 +1,19 @@
-const users = ["Аня", "Вика", "Катя"]; // Студены которые пришли на экзамент, по задаче нужно исключить одного и изменить на другого
-console.log(users);
-users[2] = "Кристина";
-console.log(users);
+const roles = ["user", "admin", "manager"];
 
-// Добавление элемента в массив
-const arrLenght = users.push("Никита"); // Добавляем значение в конец массива. Если нужно получить длину массива, мы можем положить ее в переменную
-console.log(users);
-console.log(arrLenght);
+const elIndex = roles.indexOf("admin"); // indexOf перебирает массив, находит нужный элемент и возвращает его. Если одинаковых элементов два, то возвращает только первый элемент.
+console.log(elIndex);
 
-users.unshift("Вася"); // Добавляем значение в начало массива
-console.log(users);
+const elIndex2 = roles.indexOf("superUser"); // Если элемент не найден возвращает -1
+console.log(elIndex2);
 
-// Удаление пользователей из массива
-users.pop();
-console.log(users);
+if (roles.indexOf("admin") >= 0) {
+  // Таким способом можем проверить есть ли у пользователя доступ к сайту. Используется редко.
+  console.log("Доступ есть");
+}
+
+console.log(roles.includes("admin")); // Поиск по массиву, возвращает true / false
+console.log(roles.includes("superadmin")); // Поиск по массиву, возвращает true / false
+
+if (roles.includes("admin")) {
+  console.log("Доступ есть");
+}
