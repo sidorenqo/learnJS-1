@@ -1,25 +1,16 @@
-const role1 = "admin";
-const role2 = "user";
-const role3 = "superUser";
+const users = ["Аня", "Вика", "Катя"]; // Студены которые пришли на экзамент, по задаче нужно исключить одного и изменить на другого
+console.log(users);
+users[2] = "Кристина";
+console.log(users);
 
-const roles = ["admin", "user", "superUser"];
-const userInfo = ["Аня", 25];
+// Добавление элемента в массив
+const arrLenght = users.push("Никита"); // Добавляем значение в конец массива. Если нужно получить длину массива, мы можем положить ее в переменную
+console.log(users);
+console.log(arrLenght);
 
-console.log(roles);
+users.unshift("Вася"); // Добавляем значение в начало массива
+console.log(users);
 
-console.log(roles[3]);
-
-console.log(roles.length);
-console.log(roles.length - 1); // Получение последнего элемента
-
-console.log(roles.at(0)); // Современный синтаксис получения последнего элемента
-console.log(roles.at(0)); // Например получение последнего элемента выглядит так
-
-// Что может быть элементом массива
-const usersAge = [2040 - 2023, 20 - "6", 10 > 0 ? 5 : 0];
-console.log(usersAge);
-
-// Альтернативный способ создания массива
-
-const usersNames = new Array("Вася", "Петя", "Катя");
-console.log(usersNames);
+// Удаление пользователей из массива
+users.pop();
+console.log(users);
