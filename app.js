@@ -1,15 +1,5 @@
-// Деструктуризация массивов
+// REST и SPREDE оператор. Используев когда делаем деструктуризацию
 
-const userData = ["Антон", 18, "Москва"];
-
-function getData() {
-  return ["Антон", 18, "Москва"];
-}
-// Запись без деструктуризации
-// const userName = getData()[0];
-// const age = getData()[1];
-// const city = getData()[2];
-
-const [userName, age, city] = getData();
-
-console.log(userName, age, city);
+const data = [1, 2, 3, 4, 5, 6];
+const [one, two, ...others] = data; // Делаем дуструктуризацию чтобы получить 2 значения из массива. Указываем REST оператор ... чтобы получить в него остальной массив
+console.log(one, two, others);
