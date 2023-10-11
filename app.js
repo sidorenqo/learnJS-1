@@ -1,5 +1,21 @@
-// REST и SPREDE оператор. Используев когда делаем деструктуризацию
+// https
+// purpleschool.ru
+// /course/javascript
 
-const data = [1, 2, 3, 4, 5, 6];
-const [one, two, ...others] = data; // Делаем дуструктуризацию чтобы получить 2 значения из массива. Указываем REST оператор ... чтобы получить в него остальной массив
-console.log(one, two, others);
+const url = "https://purpleschool.ru/course/javascript";
+
+function getUrlParts(url) {
+  const [protocol, _, domen, ...way] = url.split("/");
+  if (protocol === "https:" || protocol === "http:") {
+    // Дополнительная проверка передаваемой ссылки
+    if (!host.includes(".")) {
+      return;
+    }
+    console.log(protocol, _, domen, way);
+    console.log(`Протокол: ${protocol.split(":")[0]}`);
+    console.log(`Адрес сайта: ${domen}`);
+    console.log(`Путь внутри сайта: /${way.join("/")}`);
+  }
+}
+
+getUrlParts(url);
