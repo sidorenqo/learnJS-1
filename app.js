@@ -1,19 +1,38 @@
-const roles = ["user", "admin", "manager"];
+// SLICE SPLISE CONCAT REVERS
 
-const elIndex = roles.indexOf("admin"); // indexOf перебирает массив, находит нужный элемент и возвращает его. Если одинаковых элементов два, то возвращает только первый элемент.
-console.log(elIndex);
+let roles = ["user", "admin", "manager", "superuser"];
 
-const elIndex2 = roles.indexOf("superUser"); // Если элемент не найден возвращает -1
-console.log(elIndex2);
+// SLICE Не модифицирует исходный массив. В качестве первого аргумента принимает начальный индекс, в качестве второго (если он есть) - конечный.
+const res = roles.slice(2); // Взят второй элемент, массив отрезан до конца, присвоен результату выполнения
+console.log(res);
 
-if (roles.indexOf("admin") >= 0) {
-  // Таким способом можем проверить есть ли у пользователя доступ к сайту. Используется редко.
-  console.log("Доступ есть");
-}
+const res2 = roles.slice(2, 3); // В качестве начального элемента взят 2 второй элемент, в качестве последнего третьего элемента, НО НЕ ВКЛЮЧАЯ ЕГО
+console.log(res2);
 
-console.log(roles.includes("admin")); // Поиск по массиву, возвращает true / false
-console.log(roles.includes("superadmin")); // Поиск по массиву, возвращает true / false
+const res3 = roles.slice(-1); // БЕРЕТ ПОСЛЕДНИЙ ЭЛЕМЕНТ МАССИВА в зависимости от числа которое указано в методе ( например если указано -2, то возьмет последние 2 елемента)
+console.log(res3);
 
-if (roles.includes("admin")) {
-  console.log("Доступ есть");
-}
+const res4 = roles.slice(1, -2); // Первая цифра - считаем сначала, вторая сконца
+console.log(res4);
+
+// SPLICE - Модифицирует исходный массив. В качестве первого аргумента принимает начальный индекс, в качестве второго (если он есть) - длину массива.
+roles = ["user", "admin", "manager", "superuser"];
+
+const res5 = roles.splice(2); // Изменяет длину начального массива, модифицирует массив
+console.log(res5);
+
+const res6 = roles.splice(2, 2); // Со второго элемента берем 2 элемента
+console.log(res6);
+
+// REVERSE - переварачивает массив. Модифицирует исходный массив
+
+roles = ["user", "admin", "manager", "superuser"];
+
+const res8 = roles.reverse();
+console.log(res8);
+
+// CONCAT - соединение 2х массивов
+roles = ["user", "admin", "manager", "superuser"];
+const newRoles = ["sysadmin", "developer"];
+const res9 = roles.concat(newRoles);
+console.log(res9);
