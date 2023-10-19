@@ -1,28 +1,18 @@
-// function power(pow) {
-//   return function (num) {
-//     return num ** pow;
-//   };
+// Итерации по массивам FOR EACH
+
+const score = [5, 10, 0, 15];
+
+// for (const el of score) {
+//   console.log("Раунд: " + el);
 // }
 
-// const powerOfTwo = power(2);
-// console.log(powerOfTwo(5));
+score.forEach((el) => {
+  console.log("Раунд: " + el);
+});
+// кроме того что мы можем итерироваться по элементу, мы можем получить индекс.
 
-// // Мы исполнили функцию с аргументом 2. И в powerOfTwo положили результат. Результатом является еще одна функция.
+score.forEach((el, i) => {
+  console.log(`Раунд: ${i + 1} ${el}`);
+});
 
-// // Еслии в будующем нам понадобится возводить число уже в треью степень, мы легко может переделать выражение:
-
-// const powerOfTree = power(3);
-// console.log(powerOfTree(5));
-
-// // Можем сделать более короткую запись: (например мы хотим возвеси 4 в 5 степень)
-
-// console.log(power(5)(4));
-
-const power = (pow) => (num) => num ** pow;
-const powerOfTwo = power(2);
-console.log(powerOfTwo(5));
-
-const powerOfThree = power(3);
-console.log(powerOfThree(5));
-
-console.log(power(5)(4));
+// Что происходит в методе: когда мы вызываем функцию (метод), она по кажлдому из элементов начинает выполнять функцию. Т.е. в первом случае будет подставлено (5, 0) и будет выполняться тело функции {...}. Послен того как оно выполнилось мы перешли ко второму желементу (10, 1) => {...} и так далее
