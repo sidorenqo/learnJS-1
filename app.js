@@ -1,18 +1,21 @@
-// Итерации по массивам FOR EACH
+// МЕТОД MAP() - Итерируется по массиву. Преобразовает исходный массив
 
-const score = [5, 10, 0, 15];
+const transactionsInUsd = [10, -7, 10, 100]; // Считаем транзакции сначала методжом for
 
-// for (const el of score) {
-//   console.log("Раунд: " + el);
-// }
+const transactionInRub = [];
 
-score.forEach((el) => {
-  console.log("Раунд: " + el);
+for (const transaction of transactionsInUsd) {
+  transactionInRub.push(transaction * 60);
+}
+
+// console.log(transactionInRub) // В рублях
+// console.log(transactionsInUsd)
+
+// делаем методом MAP
+
+const transactionInRub2 = transactionsInUsd.map((transaction, i) => {
+  return transaction * 60;
 });
-// кроме того что мы можем итерироваться по элементу, мы можем получить индекс.
 
-score.forEach((el, i) => {
-  console.log(`Раунд: ${i + 1} ${el}`);
-});
-
-// Что происходит в методе: когда мы вызываем функцию (метод), она по кажлдому из элементов начинает выполнять функцию. Т.е. в первом случае будет подставлено (5, 0) и будет выполняться тело функции {...}. Послен того как оно выполнилось мы перешли ко второму желементу (10, 1) => {...} и так далее
+console.log(transactionInRub2); // В рублях
+console.log(transactionsInUsd);
