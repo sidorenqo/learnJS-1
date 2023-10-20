@@ -1,21 +1,25 @@
-// МЕТОД MAP() - Итерируется по массиву. Преобразовает исходный массив
+// FILTER() - оставляем в массиве только элементы которые удовлетворяют нашему условию. Возвращает новый масив
+// Фильтрация данных ( показываем только положительные операции)
 
-const transactionsInUsd = [10, -7, 10, 100]; // Считаем транзакции сначала методжом for
+const operations = [100, -20, 7, -20, 50];
 
-const transactionInRub = [];
+// const positiveOperations = [];
+// for (const operation of operations) {   // Делаем методом for
+//   if (operation > 0) {
+//     positiveOperations.push(operation);
+//   }
+// }
 
-for (const transaction of transactionsInUsd) {
-  transactionInRub.push(transaction * 60);
-}
+// console.log(positiveOperations);
 
-// console.log(transactionInRub) // В рублях
-// console.log(transactionsInUsd)
-
-// делаем методом MAP
-
-const transactionInRub2 = transactionsInUsd.map((transaction, i) => {
-  return transaction * 60;
+const positiveOperations = operations.filter((operation) => {
+  return operation > 0;
 });
+console.log(positiveOperations);
 
-console.log(transactionInRub2); // В рублях
-console.log(transactionsInUsd);
+const positiveRUBOperations = operations
+  .filter((operation) => {
+    return operation > 0;
+  })
+  .map((operation) => operation * 60);
+console.log(positiveRUBOperations);
